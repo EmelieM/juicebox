@@ -13,6 +13,7 @@ const {
   addTagsToPost,
   getPostById,
   getAllTags,
+  getPostsByTagName,
 } = require("./index");
 
 //
@@ -203,6 +204,10 @@ async function testDB() {
       tags: ["#youcandoanythings", "#redfishs", "#bluefishs"],
     });
     console.log("Result:", updatePostTagsResult);
+
+    console.log("Calling getPostsByTagName with #happy");
+    const postsWithHappy = await getPostsByTagName("#happy");
+    console.log("Result:", postsWithHappy);
 
     console.log("Finished database tests!");
   } catch (error) {
